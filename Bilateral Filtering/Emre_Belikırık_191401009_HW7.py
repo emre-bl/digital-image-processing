@@ -27,12 +27,10 @@ normalized_noisyImage_Gaussian = np.single(noisyImage_Gaussian)
 normalized_noisyImage_Gaussian = cv.normalize(normalized_noisyImage_Gaussian, None, alpha=0,beta=1, norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
 
 
-b3 = None
-b3 = cv.boxFilter(normalized_noisyImage_Gaussian, 0, (3,3), b3, (-1,-1), True, cv.BORDER_REPLICATE)
+b3 = cv.blur(normalized_noisyImage_Gaussian, (3,3), borderType=cv.BORDER_REPLICATE)
 b3 = cv.normalize(b3, None, alpha=0, beta=255, norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F).astype(np.uint8)
 
-b5 = None
-b5 = cv.boxFilter(normalized_noisyImage_Gaussian, 0, (5,5), b5, (-1,-1), True, cv.BORDER_REPLICATE)
+b5 = cv.blur(normalized_noisyImage_Gaussian, (5,5), borderType=cv.BORDER_REPLICATE)
 b5 = cv.normalize(b5, None, alpha=0, beta=255, norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F).astype(np.uint8)
 
 g3 = cv.GaussianBlur(normalized_noisyImage_Gaussian,(3,3),0,borderType = cv.BORDER_REPLICATE)
@@ -62,12 +60,10 @@ noisyImage_Gaussian_01 = cv.imread("noisyImage_Gaussian_01.jpg", cv.IMREAD_GRAYS
 normalized_noisyImage_Gaussian_01 = np.single(noisyImage_Gaussian_01)
 normalized_noisyImage_Gaussian_01 = cv.normalize(normalized_noisyImage_Gaussian_01, None, alpha=0,beta=1, norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
 
-b3_01 = None
-b3_01 = cv.boxFilter(normalized_noisyImage_Gaussian_01, 0, (3,3), b3_01, (-1,-1), True, cv.BORDER_REPLICATE)
+b3_01 = cv.blur(normalized_noisyImage_Gaussian_01, (3,3), borderType=cv.BORDER_REPLICATE)
 b3_01 = cv.normalize(b3_01, None, alpha=0, beta=255, norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F).astype(np.uint8)
 
-b5_01 = None
-b5_01 = cv.boxFilter(normalized_noisyImage_Gaussian_01, 0, (5,5), b5_01, (-1,-1), True, cv.BORDER_REPLICATE)
+b5_01 = cv.blur(normalized_noisyImage_Gaussian_01, (5,5), borderType=cv.BORDER_REPLICATE)
 b5_01 = cv.normalize(b5_01, None, alpha=0, beta=255, norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F).astype(np.uint8)
 
 g3_01 = cv.GaussianBlur(normalized_noisyImage_Gaussian_01,(3,3),0,borderType = cv.BORDER_REPLICATE)
